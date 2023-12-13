@@ -31,7 +31,7 @@ const POST_LIST = [
   },
 ]
 
-const createPost = () => {
+export const createPost = () => {
   const postList = createElement('main', 'post_list')
 
   POST_LIST.forEach((postData) => {
@@ -55,20 +55,20 @@ const createPost = () => {
       const categorySpan = createElement(
         'span',
         `post__category post__category--${category.id}`,
-        'category.text',
+        category.text,
       )
       categoryList.append(categorySpan)
     })
     //   ===
 
-    const dateSpane = createElement(
+    const dateSpan = createElement(
       'span',
       'post__date',
       postData.date,
     )
 
     // ===
-    postHeader.append(categoryList, dateSpane)
+    postHeader.append(categoryList, dateSpan)
 
     //   ===
 
@@ -82,7 +82,7 @@ const createPost = () => {
     //   ===
     postList.append(post)
   })
-  return post.postList
+  return postList
 }
 
 // ========
@@ -107,21 +107,15 @@ const HEADER_BUTTON_LIST = [
 
 export const createHeader = () => {
   const header = createElement('header', 'header')
-
   HEADER_BUTTON_LIST.forEach((params) => {
     const button = createElement('button', 'button')
-
-    const img = createElement('img', 'img')
-
-    Object.entries(params).forEach(([key]) => {
+    const img = createElement('img')
+    Object.entries(params).forEach(([key, value]) => {
       img[key] = value
     })
-
-    button.incertAdjacentElement('beforeend', img)
-
-    header.incertAdjacentElement('afterend', button)
+    button.insertAdjacentElement('beforeend', img)
+    header.insertAdjacentElement('beforeend', button)
   })
-
   return header
 }
 
