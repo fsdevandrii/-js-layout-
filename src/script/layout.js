@@ -32,7 +32,7 @@ const POST_LIST = [
 ]
 
 export const createPost = () => {
-  const postList = createElement('main', 'post_list')
+  const postList = createElement('main', 'post__list')
 
   POST_LIST.forEach((postData) => {
     const post = createElement(
@@ -86,8 +86,8 @@ export const createPost = () => {
 }
 
 // ========
-const post = createPost()
-page.append(post)
+// const post = createPost()
+// page.append(post)
 // ========
 
 const HEADER_BUTTON_LIST = [
