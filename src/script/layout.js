@@ -11,6 +11,37 @@ export const createElement = (tag, className, text) => {
 
   return elem
 }
+
+// ========
+const HEADER_BUTTON_LIST = [
+  {
+    with: 24,
+    height: 24,
+    src: '/svg/arrow_back.svg',
+  },
+  {
+    with: 24,
+    height: 24,
+    src: '/img/ava.png',
+  },
+]
+
+// ========
+
+export const createHeader = () => {
+  const header = createElement('header', 'header')
+  HEADER_BUTTON_LIST.forEach((params) => {
+    const button = createElement('button', 'button')
+    const img = createElement('img')
+    Object.entries(params).forEach(([key, value]) => {
+      img[key] = value
+    })
+    button.insertAdjacentElement('beforeend', img)
+    header.insertAdjacentElement('beforeend', button)
+  })
+  return header
+}
+
 // ========
 
 const TAB_BUTTON_LIST = [
@@ -26,27 +57,17 @@ const TAB_BUTTON_LIST = [
 
 // ========
 
-export const createHeader = () => {
-  const header = createElement('header', 'header')
-
-  HEADER_BUTTON_LIST.forEach((params) => {
+export const createTAB = () => {
+  const tab = createElement('div', 'tab')
+  TAB_BUTTON_LIST.forEach((params) => {
     const button = createElement('button', 'button')
+    // const info = createElement('info')
 
-    const img = createElement('img')
-
-    Object.entries(params).forEach(([key, value]) => {
-      img[key] = value
-    })
-
-    button.insertAdjacentElement('beforeend', img)
-
-    header.insertAdjacentElement('beforeend', button)
+    tab.insertAdjacentElement('afterbegin', button)
+    tab.insertAdjacentElement('beforeend', button)
   })
-
-  return header
+  return tab
 }
-
-// ========
 
 // const POST_LIST = [
 //   {
