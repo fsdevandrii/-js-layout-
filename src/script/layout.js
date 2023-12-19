@@ -1,3 +1,5 @@
+import { text } from 'express'
+
 export const createElement = (tag, className, text) => {
   const elem = document.createElement(tag)
 
@@ -12,7 +14,7 @@ export const createElement = (tag, className, text) => {
   return elem
 }
 
-// ========
+// =================================
 const HEADER_BUTTON_LIST = [
   {
     with: 24,
@@ -26,7 +28,7 @@ const HEADER_BUTTON_LIST = [
   },
 ]
 
-// ========
+// -----------------
 
 export const createHeader = () => {
   const header = createElement('header', 'header')
@@ -42,7 +44,7 @@ export const createHeader = () => {
   return header
 }
 
-// ========
+// =================================
 
 const TAB_BUTTON_LIST = [
   {
@@ -55,24 +57,77 @@ const TAB_BUTTON_LIST = [
   },
 ]
 
-// ========
+// --------------
 
 export const createTAB = () => {
   const tab = createElement('div', 'tab')
   TAB_BUTTON_LIST.forEach((params) => {
     const button = createElement('button', 'button')
-    // const info = createElement('info')
-
-    tab.insertAdjacentElement('afterbegin', button)
+    button.innerText = params.info
     tab.insertAdjacentElement('beforeend', button)
   })
   return tab
 }
 
+// =================================
+
+const IMG_POST_BUTTON = [
+  {
+    with: '100%',
+    src: '/img/comm.png',
+  },
+]
+
+export const createPostButton = () => {
+  const post__img = createElement('div', 'post__img')
+  IMG_POST_BUTTON.forEach((params) => {
+    const button = createElement('button', 'button')
+    const img = createElement('img')
+    Object.entries(params).forEach(([key, value]) => {
+      img[key] = value
+    })
+    button.insertAdjacentElement('beforeend', img)
+    post__img.insertAdjacentElement('beforeend', button)
+  })
+  return post__img
+}
+
+// =================================
+
+const POST_BUTTON = [
+  {
+    title: 'Що таке база знань?',
+    text: 'База знаний — база данных, содержащая правила вывода и информацию о человеческом опыте и знаниях в некоторой предметной области. В самообучающихся системах база знаний также содержит информацию, являющуюся результатом решения предыдущих задач',
+  },
+]
+
+export const createPost = () => {
+  const post = createElement('div', 'post')
+  POST_BUTTON.forEach((params) => {
+    const header = createElement(
+      'div',
+      'post__header',
+      params.title,
+    )
+    const post = createElement(
+      'p',
+      'post__info',
+      params.text,
+    )
+    const button = createElement('button', 'button')
+
+    div.insertAdjacentText('afterBegin', title)
+    p.insertAdjacentText('beforeEnd', text)
+  })
+  return post
+}
+
+// const POST_VIEWED = []
+
 // const POST_LIST = [
 //   {
 //     category: [
-//       { text: 'Важливво', id: '1' },
+//       { text: 'Важливо', id: '1' },
 //       { text: 'Нова', id: '2' },
 //     ],
 //     info: 'До біса планувальник, наймаємо дизайнера і готуємося до презентації, як Джобс',
