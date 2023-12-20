@@ -61,6 +61,7 @@ const TAB_BUTTON_LIST = [
 
 export const createTAB = () => {
   const tab = createElement('div', 'tab')
+  tab.classList.add('button-tab')
   TAB_BUTTON_LIST.forEach((params) => {
     const button = createElement('button', 'button')
     button.innerText = params.info
