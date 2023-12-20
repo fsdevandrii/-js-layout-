@@ -4,15 +4,10 @@ import {
   createTAB,
   createPostButton,
   createPost,
+  createFinalButton,
 } from '../../script/layout'
 
 const page = document.querySelector('.page')
-
-// ===== Post
-
-const post = createPost()
-
-page.append(post)
 
 // ===== кнопки Хедера
 
@@ -33,4 +28,12 @@ page.append(tab)
 const post__img = createPostButton()
 page.append(post__img)
 
-// =====
+// ===== Post
+
+const post = createPost()
+
+page.append(post)
+
+// ===== кнопк FinalButton
+const button = createFinalButton()
+page.append(button)
