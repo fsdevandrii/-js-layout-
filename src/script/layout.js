@@ -48,11 +48,11 @@ export const createHeader = () => {
 
 const TAB_BUTTON_LIST = [
   {
-    active: 'false',
+    active: false,
     info: 'База знань',
   },
   {
-    active: 'true',
+    active: true,
     info: 'Інформація',
   },
 ]
@@ -63,7 +63,12 @@ export const createTAB = () => {
   const tab = createElement('div', 'tab')
   tab.classList.add('button-tab')
   TAB_BUTTON_LIST.forEach((params) => {
-    const button = createElement('button', 'button')
+    const button = createElement(
+      'div',
+      params.active
+        ? 'button button-tab tab-active'
+        : 'button button-tab',
+    )
     button.innerText = params.info
     tab.insertAdjacentElement('beforeend', button)
   })

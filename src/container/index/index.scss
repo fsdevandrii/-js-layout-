@@ -23,13 +23,19 @@
 }
 
 .button-tab {
-  width: 100%;
   display: flex;
+  justify-content: space-around;
+  // border-bottom: 2px solid #c4c4c4;
+  height: 35px;
+}
 
-  justify-content: center;
+.tab {
+  // border-bottom: 2px solid #c4c4c4;
+}
 
-  padding-bottom: 14px;
-  border-bottom: 1px solid #c4c4c4;
+.tab-active {
+  width: 50%;
+  border-bottom: 2px solid #000000;
 }
 
 .button-trans {
@@ -39,13 +45,6 @@
   color: white;
   border-radius: 10px;
   background: #f46f17;
-}
-
-.tab {
-  display: flex;
-  align-items: flex-start;
-  align-content: flex-start;
-  justify-content: space-evenly;
 }
 
 .img-comm {
